@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EducateAppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TbAdvirtisers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Number_Of_Offered_Products" Type="int" Nullable="false" />
+    <Property Name="SellerAddress" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TbCategories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TbLocations">
+    <Key>
+      <PropertyRef Name="LocationId" />
+    </Key>
+    <Property Name="LocationId" Type="int" Nullable="false" />
+    <Property Name="CountryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="GovernorateName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CityName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LocationDetails" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="TbProducts">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProductPrice" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="ProductImages" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ProductDescription" Type="nvarchar" MaxLength="800" Nullable="false" />
+    <Property Name="Number_Of_Items" Type="nchar" MaxLength="10" />
+    <Property Name="ProductSellerID" Type="int" Nullable="false" />
+    <Property Name="AdvirtisementDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TbUsers">
+    <Key>
+      <PropertyRef Name="ID_Number" />
+    </Key>
+    <Property Name="ID_Number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserPassword" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="UserEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserGender" Type="nchar" MaxLength="7" />
+    <Property Name="UserProfileImage" Type="nvarchar" MaxLength="250" />
+    <Property Name="UserPhoneNumber" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="EducateAppModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TbAdvirtisers" EntityType="Self.TbAdvirtisers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TbCategories" EntityType="Self.TbCategories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TbLocations" EntityType="Self.TbLocations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TbProducts" EntityType="Self.TbProducts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TbUsers" EntityType="Self.TbUsers" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
